@@ -12,8 +12,11 @@ jobs:
       matrix:
          include:
            - os: ubuntu-latest
+             extension: ""
            - os: macos-latest
+             extension: ""
            - os: windows-latest
+             extension: ".exe"
 
     steps:
       - uses: actions/checkout@v6
@@ -34,5 +37,5 @@ jobs:
 
       - uses: actions/upload-artifact@v6
         with:
-          name: hello_world*
+          name: hello_world${{ matrix.extension }}
           path: dist/hello_world
